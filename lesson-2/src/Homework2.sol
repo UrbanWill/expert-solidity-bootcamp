@@ -53,13 +53,14 @@ contract Homework2 {
      * @param _item value of the item to be found
      */
     function findItemIndex(uint256 _item) internal view returns (uint256) {
-        uint256 indexCounter = 0;
+        uint256 itemIndex = 0;
         uint256 numbersLength = getNumbersLength();
         bool isItemFound = false;
 
         for (uint256 i = 0; i < numbersLength; i++) {
             if (numbers[i] == _item) {
                 isItemFound = true;
+                itemIndex = i;
                 break;
             }
         }
@@ -68,7 +69,7 @@ contract Homework2 {
             revert Homework2__ItemNotFound();
         }
 
-        return indexCounter;
+        return itemIndex;
     }
 
     /**
