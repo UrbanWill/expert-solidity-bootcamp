@@ -8,13 +8,17 @@ contract Homework2 {
 
     error Homework2__IndexOutOfBounds();
 
-    uint256[] public numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    uint256[] public numbers;
 
     /**
      * Events
      */
 
     event ItemRemoved(uint256 indexed itemRemoved, uint256 indexed itemIndex);
+
+    constructor(uint256[] memory luckyNumbers) {
+        numbers = luckyNumbers;
+    }
 
     /**
      *
@@ -31,6 +35,14 @@ contract Homework2 {
         numbers.pop();
 
         emit ItemRemoved(itemRemoved, _index);
+    }
+
+    /**
+     * Setter functions
+     */
+
+    function setNumbers(uint256[] memory _numbers) external {
+        numbers = _numbers;
     }
 
     /**

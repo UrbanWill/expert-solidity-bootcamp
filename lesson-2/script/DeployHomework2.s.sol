@@ -5,9 +5,9 @@ import {Script} from "../lib/forge-std/src/Script.sol";
 import {Homework2} from "../src/Homework2.sol";
 
 contract DeployHomework2 is Script {
-    function run() external returns (Homework2) {
+    function run(uint256[] calldata _luckyNumbers) external returns (Homework2) {
         vm.startBroadcast();
-        Homework2 homework2 = new Homework2();
+        Homework2 homework2 = new Homework2(_luckyNumbers);
         vm.stopBroadcast();
         return homework2;
     }
