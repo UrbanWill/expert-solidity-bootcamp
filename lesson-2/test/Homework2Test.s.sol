@@ -74,4 +74,22 @@ contract HomeWork2Test is Test {
         emit ItemRemoved(itemToBeRemoved, indexToRemove);
         homework2.removeIndexAt(indexToRemove);
     }
+
+    function testRemoveItemRevertsWhenNotFound() public {
+        uint256 itemToRemove = 23;
+        vm.expectRevert(Homework2.Homework2__ItemNotFound.selector);
+        homework2.removeItem(itemToRemove);
+    }
+
+    function testRemoveItemRemovesItemByValue(uint256[] calldata _numbers, uint256 indexToRemove)
+        public
+        pupulateArr(_numbers)
+    {
+        vm.assume(indexToRemove < _numbers.length);
+        uint256 itemToRemove = homework2.numbers(indexToRemove);
+
+        homework2.removeItem(itemToRemove);
+
+        assert(homework2.getNumbersLength() == _numbers.length - 1);
+    }
 }

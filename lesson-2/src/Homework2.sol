@@ -7,6 +7,7 @@ contract Homework2 {
      */
 
     error Homework2__IndexOutOfBounds();
+    error Homework2__ItemNotFound();
 
     uint256[] public numbers;
 
@@ -24,17 +25,50 @@ contract Homework2 {
      *
      * @param _index index of item to be removed
      */
-    function removeIndexAt(uint256 _index) external {
-        if (_index > numbers.length) {
+    function removeIndexAt(uint256 _index) public {
+        uint256 numbersLength = getNumbersLength();
+        if (_index > numbersLength) {
             revert Homework2__IndexOutOfBounds();
         }
 
         uint256 itemRemoved = numbers[_index];
 
-        numbers[_index] = numbers[numbers.length - 1];
+        numbers[_index] = numbers[numbersLength - 1];
         numbers.pop();
 
         emit ItemRemoved(itemRemoved, _index);
+    }
+
+    /**
+     *
+     * @param _item value of the item to be removed
+     */
+    function removeItem(uint256 _item) external {
+        (uint256 itemIndex) = findItemIndex(_item);
+        removeIndexAt(itemIndex);
+    }
+
+    /**
+     *
+     * @param _item value of the item to be found
+     */
+    function findItemIndex(uint256 _item) internal view returns (uint256) {
+        uint256 indexCounter = 0;
+        uint256 numbersLength = getNumbersLength();
+        bool isItemFound = false;
+
+        for (uint256 i = 0; i < numbersLength; i++) {
+            if (numbers[i] == _item) {
+                isItemFound = true;
+                break;
+            }
+        }
+
+        if (!isItemFound) {
+            revert Homework2__ItemNotFound();
+        }
+
+        return indexCounter;
     }
 
     /**
@@ -49,7 +83,7 @@ contract Homework2 {
      * Getter functions
      */
 
-    function getNumbersLength() external view returns (uint256) {
+    function getNumbersLength() public view returns (uint256) {
         uint256 numbersLength = numbers.length;
         return numbersLength;
     }
