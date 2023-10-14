@@ -60,3 +60,30 @@ contract MyCon {
     ) external pure {}
 }
 ```
+
+Answer: No. There's a distinction between nested functions and passing functions as arguments in Solidity:
+
+Passing Functions as Arguments:
+
+This is a legitimate and supported feature in Solidity.
+You can pass a function as an argument to another function, and the called function can execute the provided function with specific arguments.
+It's a way to make your code more flexible and dynamic by allowing different functions to be executed depending on the context.
+Nested Functions:
+
+The code you initially provided with deeply nested functions is not valid in Solidity.
+Nested functions refer to defining one function inside another function within the same contract, which Solidity does not support. Each function must be defined separately within the contract.
+In your original example, you attempted to define functions within function arguments, which is not a supported or valid practice in Solidity. The key difference is that passing functions as arguments allows you to reuse and execute different functions dynamically, while nested functions within arguments do not serve the same purpose and are not allowed.
+
+Eg of a function being passed to another function as argument:
+
+```
+    function processFunction(function(uint256) external pure returns (uint256) func, uint256 input)
+        external
+        pure
+        returns (uint256)
+    {
+        // Call the function passed as an argument
+        return func(input);
+    }
+}
+```
