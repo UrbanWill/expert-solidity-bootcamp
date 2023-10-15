@@ -26,6 +26,9 @@ B - Create a project and run the tests supplied to familiarize yourself with Fou
 C - Run the tests supplied to familiarize yourself with
 Foundry
 
+Answer:
+Done in `exercise-2-to-3` folder.
+
 ### 3 - Try out the Solidity Template or the Foundry Template
 
 A - Start a new project using the Solidity Template.
@@ -34,6 +37,15 @@ B - Make a fork of mainnet from the command line (you may need to setup an Infur
 
 C - Query the mainnet using the command line to retrieve a
 property such as latest block number.
+
+Answer:
+Add `ETH_RPC_URL` to .env
+
+```shell
+$ cd homework-2-to-3
+$ source .env
+$ forge test --fork-url $ETH_RPC_URL --match-test testGetLatestBlockNumber -vv
+```
 
 ### 4 - Is this valid solidity?
 

@@ -21,4 +21,8 @@ contract CounterTest is Test {
         counter.setNumber(x);
         assertEq(counter.number(), x);
     }
+
+    function testGetLatestBlockNumber() public {
+        console2.log(block.number);
+    }
 }
