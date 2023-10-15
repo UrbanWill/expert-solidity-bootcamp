@@ -1,10 +1,46 @@
-# Homework-3
+# Homework-4
 
 #### 1 - Optimizing Storage:
 
 A - Take <a href="https://gist.github.com/extropyCoder/6e9b5d5497b8ead54590e72382cdca24">this contract</a>. Use the <a href="https://github.com/naddison36/sol2uml">sol2uml</a> tool to find out how many storage slots it is using.
 
 B - By re ordering the variables, can you reduce the number of storage slots needed?
+
+Answer:
+
+```
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.13;
+
+contract Store {
+    struct payments {
+        bool valid;
+        uint8 paymentType;
+        bool checked;
+        address sender;
+        address receiver;
+        uint256 amount;
+        uint256 initialAmount;
+        uint256 finalAmount;
+    }
+
+    address admin;
+    address admin2;
+    bool flag1;
+    bool flag2;
+    bool flag3;
+    uint8 index;
+    uint256 public number;
+    mapping(address => uint256) balances;
+    payments[8] topPayments;
+}
+```
+
+- Before optimization:
+![Store-before-optimization](https://github.com/UrbanWill/expert-solidity-bootcamp/assets/47801291/c2cf6821-f7e5-4a2f-8242-30c97bbd9bbb)
+
+- After optimization:
+![Store](https://github.com/UrbanWill/expert-solidity-bootcamp/assets/47801291/6339a952-de0a-4de2-a228-e94b18f09348)
 
 ### 2 - Foundry introduction:
 
