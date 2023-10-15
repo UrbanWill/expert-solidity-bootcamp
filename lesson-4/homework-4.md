@@ -42,7 +42,7 @@ Answer:
 Add `ETH_RPC_URL` to .env
 
 ```shell
-$ cd homework-2-to-3
+$ cd exercise-2-to-3
 $ source .env
 $ forge test --fork-url $ETH_RPC_URL --match-test testGetLatestBlockNumber -vv
 ```
