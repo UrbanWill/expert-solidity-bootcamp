@@ -8,6 +8,14 @@ B - By re ordering the variables, can you reduce the number of storage slots nee
 
 Answer:
 
+To generate Storage Usage report:
+
+```shell
+$ cd exercise-1
+$ yarn
+$ sol2uml storage -f png -c Store ./Homework4-Q1.sol
+```
+
 ```
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
@@ -37,10 +45,10 @@ contract Store {
 ```
 
 - Before optimization:
-![Store-before-optimization](https://github.com/UrbanWill/expert-solidity-bootcamp/assets/47801291/c2cf6821-f7e5-4a2f-8242-30c97bbd9bbb)
+  ![Store-before-optimization](https://github.com/UrbanWill/expert-solidity-bootcamp/assets/47801291/c2cf6821-f7e5-4a2f-8242-30c97bbd9bbb)
 
 - After optimization:
-![Store](https://github.com/UrbanWill/expert-solidity-bootcamp/assets/47801291/6339a952-de0a-4de2-a228-e94b18f09348)
+  ![Store](https://github.com/UrbanWill/expert-solidity-bootcamp/assets/47801291/6339a952-de0a-4de2-a228-e94b18f09348)
 
 ### 2 - Foundry introduction:
 
