@@ -4,13 +4,13 @@ pragma solidity ^0.8.13;
 contract Store {
     struct payments {
         bool valid;
-        uint256 amount;
-        address sender;
         uint8 paymentType;
-        uint256 finalAmount;
-        address receiver;
-        uint256 initialAmount;
         bool checked;
+        address sender;
+        address receiver;
+        uint256 amount;
+        uint256 initialAmount;
+        uint256 finalAmount;
     }
 
     address admin;
