@@ -13,14 +13,14 @@ contract Store {
         bool checked;
     }
 
+    address admin;
+    address admin2;
+    bool flag1;
+    bool flag2;
+    bool flag3;
     uint8 index;
     uint256 public number;
-    bool flag1;
-    address admin;
     mapping(address => uint256) balances;
-    bool flag2;
-    address admin2;
-    bool flag3;
     payments[8] topPayments;
 
     constructor() {}
