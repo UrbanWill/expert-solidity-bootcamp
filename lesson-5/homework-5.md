@@ -62,3 +62,11 @@ RETURN
 To interact with bytecode from another contract. EXTCODECOPY function is used to copy the code of an external contract to the current contract's storage.
 
 #### 6 - Complete the assembly exercises in this repo <a href="https://github.com/ExtropyIO/ExpertSolidityBootcamp">exercises</a>
+
+Answer:
+
+In the assembly folder
+
+```shell
+$ cd assembly/src
+```
